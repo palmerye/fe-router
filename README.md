@@ -13,14 +13,18 @@ npm i fe-router -D
 ```
 const FERouter = require('fe-router')
 
+const routeMap = {
+    '/': function () {
+        xxx
+    },
+    '/1': function () {
+        xxx
+    }
+}
+
 const router = new FERouter({
-    history: false
+    history: false, // true: history model ,  false: hash model
+    routeMap
 })
 
-router.route('/', function () {
-    xxx
-})
-router.route('/1', function () {
-    xxx
-})
 ```
