@@ -1,15 +1,21 @@
 function FeRouter(option) {
-    this.init(option)
-}
-
-FeRouter.prototype.init = function (option) {
+    this._history = option.history
     this.currentUrl = ''
     this.routes = {}
-    if (option.history) {
-        // history 
+    this.register(option.routeMap)
+}
+
+FeRouter.prototype.init = function () {
+    if (this._history) {
+        // history model
+        var _locPath = location.pathname
+        history.replaceState({path: _locPath}, '', _locPath)
+        this.routes[_locPath] && this.routes[_locPath]()
+        window.addEventListener('popstate', e => {
+            this.changeUrl()
+        })
     } else {
-        // hash 
-        window.addEventListener('load', this.changeUrl.bind(this))
+        // hash model
         window.addEventListener('hashchange', this.changeUrl.bind(this))
         if (location.hash.slice(1) !== '/') {
             location.hash = '#/'
@@ -18,12 +24,32 @@ FeRouter.prototype.init = function (option) {
 }
 
 FeRouter.prototype.changeUrl = function () {
-    this.currentUrl = location.hash.slice(1)
+    if (this._history) {
+        this.currentUrl = location.pathname
+    } else {
+        this.currentUrl = location.hash.slice(1)
+    }
+    console.log('change')
     this.routes[this.currentUrl]()
 }
 
-FeRouter.prototype.route = function (path, callback) {
-    this.routes[path] = callback
+FeRouter.prototype.register = function (routeMap) {
+    Object.keys(routeMap).forEach(key => {
+        this.routes[key] = routeMap[key]
+    })
+
+    this.init()
+}
+
+FeRouter.prototype.push = function (path) {
+    if (this._history) {
+        // history model
+        history.pushState({path: path}, null, path)
+        this.changeUrl()
+    } else {
+        // hash model
+        location.hash = path
+    }
 }
 
 module.exports = FeRouter
