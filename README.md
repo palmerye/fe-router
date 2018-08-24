@@ -27,4 +27,7 @@ const router = new FERouter({
     routeMap
 })
 
+router.push('/')
+router.push('/1')
+
 ```
