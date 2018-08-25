@@ -29,7 +29,6 @@ FeRouter.prototype.changeUrl = function () {
     } else {
         this.currentUrl = location.hash.slice(1)
     }
-    console.log('change')
     this.routes[this.currentUrl]()
 }
 
@@ -37,7 +36,6 @@ FeRouter.prototype.register = function (routeMap) {
     Object.keys(routeMap).forEach(key => {
         this.routes[key] = routeMap[key]
     })
-
     this.init()
 }
 
