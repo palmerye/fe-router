@@ -1,0 +1,27 @@
+{
+  "name": "fe-router",
+  "version": "1.0.2",
+  "description": "This is a frontend router, include history and hash models.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palmerye/fe-router.git"
+  },
+  "keywords": [
+    "router",
+    "history",
+    "hash"
+  ],
+  "author": "palmer (palmerye@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palmerye/fe-router/issues"
+  },
+  "homepage": "https://github.com/palmerye/fe-router#readme",
+  "devDependencies": {
+    "rollup": "^0.65.0"
+  }
+}
