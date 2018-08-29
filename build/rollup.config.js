@@ -1,18 +1,16 @@
+import babel from 'rollup-plugin-babel'
+
 export default {
     input: './src/index.js',
     output: [{
-        file: './dist/fe-router.iife.js',
-        format: 'iife',
-        sourceMap: 'inline'
-    },
-    {
-        file: './dist/fe-router.cjs.js',
-        format: 'cjs',
-        sourceMap: 'inline'
-    },
-    {
         file: './dist/fe-router.umd.js',
         format: 'umd',
+        name: 'FeRouter',
         sourceMap: 'inline'
-    }]
+    }],
+    plugins: [
+        babel({
+            exclude: 'node_modules/**'
+        })
+    ]
 }
