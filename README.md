@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/badge/rollup-0.65.0-brightgreen.svg)
 
+[![Analytics](https://ga-beacon.appspot.com/UA-124794789-1/fe-router)](https://github.com/igrigorik/ga-beacon)
+
 > This is a mini frontend router.
 
 ## install 
