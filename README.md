@@ -23,7 +23,7 @@ const routeMap = {
 }
 
 const router = new FERouter({
-    history: false, // true: history model ,  false: hash model
+    history: false, // true: history model,  false: hash model, default model: hash model
     routeMap
 })
 
