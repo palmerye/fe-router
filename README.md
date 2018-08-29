@@ -1,5 +1,7 @@
 # fe-router
 
+![](https://img.shields.io/badge/rollup-0.65.0-brightgreen.svg)
+
 > This is a mini frontend router.
 
 ## install 
