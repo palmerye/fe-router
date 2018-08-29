@@ -8,7 +8,7 @@ function FeRouter(option) {
 FeRouter.prototype.init = function () {
     if (this._history) {
         // history model
-        var _locPath = location.pathname
+        let _locPath = location.pathname
         history.replaceState({path: _locPath}, '', _locPath)
         this.routes[_locPath] && this.routes[_locPath]()
         window.addEventListener('popstate', e => {
